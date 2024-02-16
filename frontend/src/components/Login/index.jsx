@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from './styles.module.css';
+import RecuperarContraseña from "../RecuperarContraseña";
 
 
 export default function Login() {
@@ -49,10 +50,10 @@ export default function Login() {
                 <form onSubmit={handleSubmint}>
                     <div>
                         <input className={styles.inputLabel}
-                               type={showPassword ? "text" : "password"}
-                               id="password"
-                               name="password"
-                               placeholder=""
+                            type={showPassword ? "text" : "password"}
+                            id="password"
+                            name="password"
+                            placeholder=""
                         />
                         <button className={styles.eyeButton} type="button" onClick={visibilidadContraseña}>
                             {showPassword ? (
@@ -66,7 +67,9 @@ export default function Login() {
             </div>
             <button className={styles.btn_standard} type="submit"><h2 className={styles.btn_standard_texto}>Iniciar sesión</h2></button>
 
-            <button className={styles.btn_standard2} type="submit"><h2 className={styles.btn_standard2_texto}>¿Olvidaste tu Contraseña?</h2></button>
+            <button className={styles.btn_standard2} onClick={() => navigate('/recuperar_contraseña')}>
+                <h2 className={styles.btn_standard2_texto}>¿Olvidaste tu Contraseña?</h2>
+            </button>
         </div >
     );
 };
