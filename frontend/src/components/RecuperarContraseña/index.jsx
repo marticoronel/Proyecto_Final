@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from './styles.module.css';
+import Button from "../botones/BotonGeneral";
 
 export default function ForgotPassword() {
     const navigate = useNavigate();
@@ -43,6 +44,7 @@ export default function ForgotPassword() {
                         />
                     </div>
                 </div>
+                <Button>    </Button>
                 <button className={styles.btn_standard} type="submit">
                     <h2 className={styles.btn_standard_texto}>Recuperar Contraseña</h2>
                 </button>
