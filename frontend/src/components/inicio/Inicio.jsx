@@ -5,7 +5,7 @@ import Button from '../botones/BotonGeneral';
 import styles from './boton.module.css';
 
 export default function inicio() {
-const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const buttonStyle = {
 
@@ -68,14 +68,19 @@ const navigate = useNavigate();
     }
 
     const handleIniciarSesionClick = () => {
-        // Navegar a la ruta /login
-        navigate('/Login');
+        navigate('/login');
+    };
+
+    const handleRegistrarseClick = () => {
+        navigate('/registrarse');
     };
 
     return (
         <>
             <VideoBackground />
-            <Button style={buttonStyle} >Registrarse Gratis</Button>
+            <Button style={buttonStyle} onClick={handleRegistrarseClick}>
+                Registrarse Gratis
+            </Button>
             <Button style={buttonStyleGoogle}>Continuar con Google</Button>
             <Button style={buttonStyleApple}>Continuar con Apple</Button>
             <Button style={buttonStyleIniciarSesion} onClick={handleIniciarSesionClick}>
@@ -84,3 +89,5 @@ const navigate = useNavigate();
         </>
     )
 }
+
+

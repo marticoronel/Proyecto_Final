@@ -7,6 +7,8 @@ import {
 import Login from './components/Login';
 import Inicio from './components/inicio/Inicio';
 import RecuperarContrasena from './components/RecuperarContrasena';
+import NombreUsuario from './components/NombreUsuario';
+import Registrarse from './components/Registrarse';
 
 const router = createBrowserRouter([
   {
@@ -22,8 +24,12 @@ const router = createBrowserRouter([
     element: <RecuperarContrasena />,
   },
   {
-    path: '/registrar',
-    element: <div>Registro</div>,
+    path: '/registrarse',
+    element: <Registrarse />,
+  },
+  {
+    path: '/registrarse/nombre_usuario',
+    element: <NombreUsuario />,
   },
 ]);
 
