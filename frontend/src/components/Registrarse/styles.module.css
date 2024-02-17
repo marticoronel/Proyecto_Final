@@ -109,6 +109,10 @@
     text-align: center;
 }
 
+.btn_continuar {
+    margin-top: 220px;
+}
+
 .inputLabel {
     width: 320px;
     height: 48px;
@@ -165,6 +169,12 @@ input[type="password"] {
     color: #26262E;
 }
 
+.input_advise {
+    position: relative;
+    top: 50px;
+    z-index: 1;
+}
+
 .bodyBodyVerySmall {
     width: 320px;
     height: 36px;
@@ -175,6 +185,7 @@ input[type="password"] {
     letter-spacing: 0.5px;
     text-align: left;
     color: #838486;
+    z-index: 1;
 }
 
 .heading_3 {

@@ -7,11 +7,17 @@ export default function nombreUsuario() {
     const navigate = useNavigate();
     const [usuario, setUsuario] = useState({ email: '', password: '' });
     const [showPassword, setShowPassword] = useState(false);
+    const [isChecked, setIsChecked] = useState(false);
 
     const handleSubmint = async (e) => {
         e.preventDefault();
         const usuario = e.target["email"].value;
         const password = e.target["password"].value;
+
+        if (!isChecked) {
+            alert("Debes aceptar los Términos y Condiciones.");
+            return;
+        }
 
         const response = await fetch('http://localhost:3000/login', {
             method: 'POST',
@@ -37,7 +43,7 @@ export default function nombreUsuario() {
         <div className={styles.container}>
             <div className={styles.login_header}>
                 <button className={styles.btn_arrow} onClick={() => navigate('/registrarse')}>
-                    <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atras" />
+                    <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atrás" />
                 </button>
                 <h2 className={styles.heading_5}>Crear Cuenta</h2>
             </div>
@@ -69,12 +75,23 @@ export default function nombreUsuario() {
                         </button>
                     </div>
                 </form>
-                <div className={styles.bodyBodyVerySmall}>Deberá contener al menos 8 caracteres.</div>
+                <div className={`${styles.bodyBodyVerySmall} ${styles.input_advise}`}>
+                    Deberá contener al menos 8 caracteres.
+                </div>
             </div>
-            <button className={styles.btn_standard} onClick={() => navigate('/login')}>
-            <h2 className={styles.btn_standard_texto}>Continuar</h2>
+            <div className={styles.checkboxContainer}>
+                <input className={styles.checkbox}
+                    type="checkbox"
+                    id="aceptarTerminos"
+                    name="aceptar_terminos"
+                    checked={isChecked}
+                    onChange={() => setIsChecked(!isChecked)}
+                />
+                <label className={styles.bodyBodyVerySmall} htmlFor="aceptarTerminos">He leído y acepto los Términos y Condiciones.</label>
+            </div>
+            <button className={`${styles.btn_standard} ${styles.btn_continuar}`} onClick={() => navigate('/login')}>
+                <h2 className={styles.btn_standard_texto}>Continuar</h2>
             </button>
-        </div >
+        </div>
     );
 };
-

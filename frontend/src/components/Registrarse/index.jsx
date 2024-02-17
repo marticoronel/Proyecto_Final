@@ -31,33 +31,40 @@ export default function nombreUsuario() {
 
     return (
         <div className={styles.container}>
-            <div className={styles.login_header}>
-                <button className={styles.btn_arrow} onClick={() => navigate('/')}>
-                    <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atrás" />
-                </button>
-                <h2 className={styles.heading_5}>Crear Cuenta</h2>
+          <div className={styles.login_header}>
+            <button className={styles.btn_arrow} onClick={() => navigate('/')}>
+              <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atrás" />
+            </button>
+            <h2 className={styles.heading_5}>Crear Cuenta</h2>
+          </div>
+          <div className={styles.heading_3}>¿Cuál es tu correo electrónico?</div>
+          <div className={styles.inputDiv}>
+            <div className={styles.heading_4}>Correo electrónico:</div>
+            <form onSubmit={handleSubmint}>
+              <div>
+                <input
+                  className={styles.inputLabel}
+                  type="text"
+                  id="nombre"
+                  name="nombre_usuario"
+                  value={nombreUsuario}
+                  onChange={(e) => setNombreUsuario(e.target.value)}
+                />
+              </div>
+            </form>
+            <div className={`${styles.bodyBodyVerySmall} ${styles.input_advise}`}>
+              Deberás poder confirmarlo luego.
             </div>
-            <div className={styles.heading_3}>¿Cuál es tu correo electrónico?</div>
-            <div className={styles.inputDiv}>
-                <div className={styles.heading_4}>Correo electrónico:</div>
-                <form onSubmit={handleSubmint}>
-                    <div>
-                        <input
-                            className={styles.inputLabel}
-                            type="text"
-                            id="nombre"
-                            name="nombre_usuario"
-                            value={nombreUsuario}
-                            onChange={(e) => setNombreUsuario(e.target.value)}
-                        />
-                    </div>
-                    <button className={styles.btn_standard} onClick={() => navigate('/registrarse/nombre_usuario')} type="submit">
-                        <h2 className={styles.btn_standard_texto}>Continuar</h2>
-                    </button>
-                </form>
-                <div className={styles.bodyBodyVerySmall}>Deberás poder confirmarlo luego.</div>
-            </div>
+            <button
+              className={`${styles.btn_standard} ${styles.btn_continuar}`}
+              onClick={() => navigate('/registrarse/nombre_usuario')}
+              type="submit"
+            >
+              <h2 className={styles.btn_standard_texto}>Continuar</h2>
+            </button>
+          </div>
         </div>
-    );
+      );
+      
 };
 
