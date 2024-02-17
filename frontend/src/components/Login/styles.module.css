@@ -18,7 +18,7 @@
 }
 
 .inputDiv {
-    width: 284px;
+    width: 320px;
     height: 88px;
     gap: 12px;
     display: flex;
@@ -27,7 +27,7 @@
 }
 
 .btn_standard {
-    width: 284px;
+    width: 320px;
     height: 48px;
     top: 416px;
     left: 22px;
@@ -88,7 +88,7 @@
 }
 
 .inputLabel {
-    width: 284px;
+    width: 320px;
     height: 48px;
     padding: 0 16px;
     border-radius: 0 16px 0 16px;
@@ -124,7 +124,7 @@
     background: none; 
     border: none;
     position: relative;
-    left: 240px;
+    left: 270px;
     top: 15px;
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from './styles.module.css';
-import RecuperarContraseña from "../RecuperarContraseña";
+import recuperar_contrasena from "../RecuperarContrasena";
 
 
 export default function Login() {
@@ -30,7 +30,7 @@ export default function Login() {
         }
     };
 
-    const visibilidadContraseña = () => {
+    const visibilidadContrasena = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
     };
 
@@ -55,7 +55,7 @@ export default function Login() {
                             name="password"
                             placeholder=""
                         />
-                        <button className={styles.eyeButton} type="button" onClick={visibilidadContraseña}>
+                        <button className={styles.eyeButton} type="button" onClick={visibilidadContrasena}>
                             {showPassword ? (
                                 <img src="../../../public/imgs/login_registrar_IMGS/passwordOpenEye.png" alt="Ocultar contraseña" />
                             ) : (
@@ -67,9 +67,10 @@ export default function Login() {
             </div>
             <button className={styles.btn_standard} type="submit"><h2 className={styles.btn_standard_texto}>Iniciar sesión</h2></button>
 
-            <button className={styles.btn_standard2} onClick={() => navigate('/recuperar_contraseña')}>
+            <button className={styles.btn_standard2} onClick={() => navigate('/recuperar_contrasena')}>
                 <h2 className={styles.btn_standard2_texto}>¿Olvidaste tu Contraseña?</h2>
             </button>
+
         </div >
     );
 };

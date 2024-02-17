@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Login from './components/Login';
 import Inicio from './components/inicio/Inicio';
+import RecuperarContrasena from './components/RecuperarContrasena';
 
 
 const router = createBrowserRouter([
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login/>,
+  },
+  {
+    path: "/recuperar_contrasena",
+    element: <RecuperarContrasena/>,
   },
   {
     path: "/registrar",
