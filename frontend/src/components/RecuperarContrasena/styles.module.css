@@ -13,6 +13,28 @@
     padding-top: 10px;
 }
 
+.login_header{
+    width: 320px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.btn_arrow {
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    background: none; 
+    border: none;
+}
+
+.arrow {
+    width: 20px;
+    height: 20px;
+    background: none; 
+    border: none;
+}
+
 .inputDiv {
     width: 320px;
     height: 88px;

@@ -1,12 +1,14 @@
-import React from 'react'
-import VideoBackground from './VideoInicio'
-import Button from '../botones/BotonGeneral'
-import styles from './boton.module.css'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import VideoBackground from './VideoInicio';
+import Button from '../botones/BotonGeneral';
+import styles from './boton.module.css';
 
 export default function inicio() {
-    
+const navigate = useNavigate();
+
     const buttonStyle = {
-        
+
         backgroundColor: '#FF8E0A',
         color: 'white',
         padding: '10px 20px',
@@ -56,7 +58,7 @@ export default function inicio() {
         borderBottomLeftRadius: '16px',
         cursor: 'pointer',
         width: '80%',
-        border:'none',
+        border: 'none',
         backgroundColor: 'transparent',
         display: 'flex',
         justifyContent: 'center',
@@ -65,13 +67,20 @@ export default function inicio() {
         height: '48px',
     }
 
+    const handleIniciarSesionClick = () => {
+        // Navegar a la ruta /login
+        navigate('/Login');
+    };
+
     return (
         <>
             <VideoBackground />
             <Button style={buttonStyle} >Registrarse Gratis</Button>
             <Button style={buttonStyleGoogle}>Continuar con Google</Button>
             <Button style={buttonStyleApple}>Continuar con Apple</Button>
-            <Button style={buttonStyleIniciarSesion}>Iniciar Sesion</Button>
+            <Button style={buttonStyleIniciarSesion} onClick={handleIniciarSesionClick}>
+                Iniciar Sesión
+            </Button>
         </>
     )
 }

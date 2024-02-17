@@ -6,12 +6,11 @@ import RecuperarContrasena from './components/RecuperarContrasena/index.jsx';
 
 function App() {
   return (
-
     <Router>
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/recuperar_contrasena" component={RecuperarContrasena} />
+        <Route path="/recuperar_contrasena" element={<RecuperarContrasena />} />
       </Routes>
     </Router>
   );

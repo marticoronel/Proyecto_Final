@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from './styles.module.css';
-import recuperar_contrasena from "../RecuperarContrasena";
+import flecha_retroceder from "../../../public/imgs/login_registrar_IMGS/arrowBack.png";
 
 
 export default function Login() {
@@ -36,7 +36,12 @@ export default function Login() {
 
     return (
         <div className={styles.container}>
-            <h2 className={styles.heading_5}>Iniciar Sesión</h2>
+            <div className={styles.login_header}>
+                <button className={styles.btn_arrow} onClick={() => navigate('/')}>
+                    <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atras" />
+                </button>
+                <h2 className={styles.heading_5}>Iniciar Sesión</h2>
+            </div>
             <div className={styles.inputDiv}>
                 <div className={styles.heading_4}>Nombre de Usuario o E-mail:</div>
                 <form onSubmit={handleSubmint}>
