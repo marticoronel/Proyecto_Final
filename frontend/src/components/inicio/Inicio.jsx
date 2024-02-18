@@ -67,6 +67,8 @@ export default function inicio() {
 
     return (
         <>
+            <img className={styles.logo} src="/public/imgs/login_registrar_IMGS/logo.svg" alt="" />
+            <p className={styles.texto}>Música a medida.</p>
             <VideoBackground />
             <Button style={buttonStyle} >Registrarse Gratis</Button>
             <Button style={buttonStyleGoogle}>Continuar con Google</Button>
