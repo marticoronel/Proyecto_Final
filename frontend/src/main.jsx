@@ -1,8 +1,10 @@
 import React from 'react';
+import { createRoot } from 'react-dom/client';
 import ReactDOM from 'react-dom';
 import {
   createBrowserRouter,
   RouterProvider,
+  Route,
 } from 'react-router-dom';
 import Login from './components/Login';
 import Inicio from './components/inicio/Inicio';
@@ -15,7 +17,6 @@ import Perfil from './components/Perfil';
 import Amigos from './components/Amigos';
 import Cupido_Musical from './components/Cupido_Musical';
 import Musica_Contextual from './components/Musica_Contextual';
-
 
 const router = createBrowserRouter([
   {
@@ -62,9 +63,10 @@ const router = createBrowserRouter([
     path: '/amigos',
     element: <Amigos />,
   },
+  // Puedes agregar más rutas según tus necesidades
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>,
