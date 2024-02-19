@@ -9,6 +9,13 @@ import Inicio from './components/inicio/Inicio';
 import RecuperarContrasena from './components/RecuperarContrasena';
 import NombreUsuario from './components/NombreUsuario';
 import Registrarse from './components/Registrarse';
+import Home from './components/Home';
+import Buscar from './components/Buscar';
+import Perfil from './components/Perfil';
+import Amigos from './components/Amigos';
+import Cupido_Musical from './components/Cupido_Musical';
+import Musica_Contextual from './components/Musica_Contextual';
+
 
 const router = createBrowserRouter([
   {
@@ -30,6 +37,30 @@ const router = createBrowserRouter([
   {
     path: '/registrarse/nombre_usuario',
     element: <NombreUsuario />,
+  },
+  {
+    path: '/cupido_musical',
+    element: <Cupido_Musical />,
+  },
+  {
+    path: '/musica_contextual',
+    element: <Musica_Contextual />,
+  },
+  {
+    path: '/home',
+    element: <Home />,
+  },
+  {
+    path: '/buscar',
+    element: <Buscar />,
+  },
+  {
+    path: '/perfil',
+    element: <Perfil />,
+  },
+  {
+    path: '/amigos',
+    element: <Amigos />,
   },
 ]);
 

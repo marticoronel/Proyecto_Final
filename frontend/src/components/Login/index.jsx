@@ -70,7 +70,7 @@ export default function Login() {
                     </div>
                 </form>
             </div>
-            <button className={styles.btn_standard} type="submit"><h2 className={styles.btn_standard_texto}>Iniciar sesión</h2></button>
+            <button className={styles.btn_standard} type="submit" onClick={() => navigate('/home')}><h2 className={styles.btn_standard_texto}>Iniciar sesión</h2></button>
 
             <button className={styles.btn_standard2} onClick={() => navigate('/recuperar_contrasena')}>
                 <h2 className={styles.btn_standard2_texto}>¿Olvidaste tu Contraseña?</h2>

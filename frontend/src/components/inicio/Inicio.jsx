@@ -77,7 +77,7 @@ export default function inicio() {
 
     return (
         <>
-            {/* <VideoBackground /> */}
+            <VideoBackground />
             <Button style={buttonStyle} onClick={handleRegistrarseClick}>
                 Registrarse Gratis
             </Button>
