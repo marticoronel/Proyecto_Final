@@ -1,6 +1,8 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const knex = require('../knexfile');
+const cors = require('cors');
+
 
 async function registrarUsuario(req, res) {
   try {

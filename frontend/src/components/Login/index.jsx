@@ -6,8 +6,9 @@ import flecha_retroceder from "../../../public/imgs/login_registrar_IMGS/arrowBa
 export default function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
-    const [nombre_usuario, setNombre_usuario] = useState('');
     const [password, setPassword] = useState('');
+    const [nombre_usuario, setNombre_usuario] = useState('');
+
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
 
@@ -23,6 +24,8 @@ export default function Login() {
                 body: JSON.stringify({ email, nombre_usuario, password }),
             });
 
+            console.log(password);
+            console.log(email);
 
             const data = await response.json();
             if (response.ok) {
@@ -58,8 +61,8 @@ export default function Login() {
                             id="email"
                             name="email"
                             value={email}
-                            onChange={(e) => setEmail(e.target.value) && setNombre_usuario(e.target.value)}
-                            />
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </div>
                 </div>
                 <div className={styles.inputDiv}>
