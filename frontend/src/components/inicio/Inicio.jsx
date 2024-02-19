@@ -77,13 +77,10 @@ export default function inicio() {
 
     return (
         <>
-<<<<<<< HEAD
+
             <img className={styles.logo} src="/public/imgs/login_registrar_IMGS/logo.svg" alt="" />
             <p className={styles.texto}>Música a medida.</p>
             <VideoBackground />
-            <Button style={buttonStyle} >Registrarse Gratis</Button>
-=======
-            {/* <VideoBackground /> */}
             <Button style={buttonStyle} onClick={handleRegistrarseClick}>
                 Registrarse Gratis
             </Button>
