@@ -28,9 +28,14 @@ async function registrarUsuario(req, res) {
 
 async function loginUsuario(req, res) {
   try {
-    const { email, password } = req.body;
+    const { email, nombre_usuario, password } = req.body;
 
-    const usuario = await knex('usuarios').where({ email }).first();
+    const usuario = await knex('usuarios')
+      .where(function() {
+        this.where('email', email).orWhere('nombre_usuario', nombre_usuario);
+      })
+      .first();
+
     if (!usuario) {
       return res.status(401).json({ message: 'Credenciales inválidas.' });
     }
@@ -50,7 +55,9 @@ async function loginUsuario(req, res) {
 }
 
 
+
 module.exports = {
   registrarUsuario,
   loginUsuario,
 };
+

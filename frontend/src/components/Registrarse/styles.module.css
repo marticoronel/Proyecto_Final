@@ -17,7 +17,7 @@
     padding-top: 10px;
 }
 
-.login_header{
+.login_header {
     width: 320px;
     height: 40px;
     display: flex;
@@ -28,14 +28,14 @@
     width: 20px;
     height: 20px;
     margin-top: 10px;
-    background: none; 
+    background: none;
     border: none;
 }
 
 .arrow {
     width: 20px;
     height: 20px;
-    background: none; 
+    background: none;
     border: none;
 }
 
@@ -109,6 +109,10 @@
     text-align: center;
 }
 
+.btn_continuar {
+    margin-top: 220px;
+}
+
 .inputLabel {
     width: 320px;
     height: 48px;
@@ -119,7 +123,7 @@
     font-family: "Rubik", sans-serif;
     font-size: 18px;
     font-weight: 400;
-    
+
 }
 
 .inputLabel:focus {
@@ -143,7 +147,7 @@
     width: 25px;
     height: 25px;
     margin-left: 5px;
-    background: none; 
+    background: none;
     border: none;
     position: relative;
     left: 270px;
@@ -163,6 +167,37 @@ input[type="password"] {
     font-size: 3.5rem;
     font-weight: 500;
     color: #26262E;
+}
+
+.input_advise {
+    position: relative;
+    top: 50px;
+    z-index: 1;
+}
+
+.bodyBodyVerySmall {
+    width: 320px;
+    height: 36px;
+    font-family: Rubik;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #838486;
+    z-index: 1;
+}
+
+.heading_3 {
+    font-family: Rubik;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    width: 320px;
+    height: 72px;
+    margin-top: 96px;
 }
 
 .heading_4 {

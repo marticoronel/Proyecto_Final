@@ -3,16 +3,21 @@ import { useNavigate } from "react-router-dom";
 import styles from './styles.module.css';
 import flecha_retroceder from "../../../public/imgs/login_registrar_IMGS/arrowBack.png";
 
-
-export default function Login() {
+export default function nombreUsuario() {
     const navigate = useNavigate();
     const [usuario, setUsuario] = useState({ email: '', password: '' });
     const [showPassword, setShowPassword] = useState(false);
+    const [isChecked, setIsChecked] = useState(false);
 
     const handleSubmint = async (e) => {
         e.preventDefault();
         const usuario = e.target["email"].value;
         const password = e.target["password"].value;
+
+        if (!isChecked) {
+            alert("Debes aceptar los Términos y Condiciones.");
+            return;
+        }
 
         const response = await fetch('http://localhost:3000/login', {
             method: 'POST',
@@ -37,11 +42,12 @@ export default function Login() {
     return (
         <div className={styles.container}>
             <div className={styles.login_header}>
-                <button className={styles.btn_arrow} onClick={() => navigate('/')}>
-                    <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atras" />
+                <button className={styles.btn_arrow} onClick={() => navigate('/registrarse')}>
+                    <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atrás" />
                 </button>
-                <h2 className={styles.heading_5}>Iniciar Sesión</h2>
+                <h2 className={styles.heading_5}>Crear Cuenta</h2>
             </div>
+            <div className={styles.heading_3}>Ingresa un nombre de <br /> usuario y contraseña.</div>
             <div className={styles.inputDiv}>
                 <div className={styles.heading_4}>Nombre de Usuario o E-mail:</div>
                 <form onSubmit={handleSubmint}>
@@ -69,14 +75,23 @@ export default function Login() {
                         </button>
                     </div>
                 </form>
+                <div className={`${styles.bodyBodyVerySmall} ${styles.input_advise}`}>
+                    Deberá contener al menos 8 caracteres.
+                </div>
             </div>
-            <button className={styles.btn_standard} type="submit"><h2 className={styles.btn_standard_texto}>Iniciar sesión</h2></button>
-
-            <button className={styles.btn_standard2} onClick={() => navigate('/recuperar_contrasena')}>
-                <h2 className={styles.btn_standard2_texto}>¿Olvidaste tu Contraseña?</h2>
+            <div className={styles.checkboxContainer}>
+                <input className={styles.checkbox}
+                    type="checkbox"
+                    id="aceptarTerminos"
+                    name="aceptar_terminos"
+                    checked={isChecked}
+                    onChange={() => setIsChecked(!isChecked)}
+                />
+                <label className={styles.bodyBodyVerySmall} htmlFor="aceptarTerminos">He leído y acepto los Términos y Condiciones.</label>
+            </div>
+            <button className={`${styles.btn_standard} ${styles.btn_continuar}`} onClick={() => navigate('/login')}>
+                <h2 className={styles.btn_standard_texto}>Continuar</h2>
             </button>
-
-        </div >
+        </div>
     );
 };
-
