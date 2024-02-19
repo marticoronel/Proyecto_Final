@@ -87,7 +87,6 @@ export default function inicio() {
             <Button style={buttonStyle} onClick={handleRegistrarseClick}>
                 Registrarse Gratis
             </Button>
->>>>>>> 5bebdde5c336d285a38fb5386e18f51fa744eec3
             <Button style={buttonStyleGoogle}>Continuar con Google</Button>
             <Button style={buttonStyleApple}>Continuar con Apple</Button>
             <Button style={buttonStyleIniciarSesion} onClick={handleIniciarSesionClick}>

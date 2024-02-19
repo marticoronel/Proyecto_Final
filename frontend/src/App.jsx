@@ -4,6 +4,8 @@ import Inicio from './components/inicio/Inicio.jsx';
 import Login from './components/Login/index.jsx';
 import RecuperarContrasena from './components/RecuperarContrasena/index.jsx';
 import Registrarse from './components/Registrarse/index.jsx';
+import NombreUsuario from './components/NombreUsuario/index.jsx';
+import Home from './components/Home/index.jsx';
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         <Route path="/recuperar_contrasena" element={<RecuperarContrasena />} />
         <Route path="/registrarse" element={<Registrarse />} />
         <Route path="/registrarse/nombre_usuario" element={<NombreUsuario />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </Router>
   );

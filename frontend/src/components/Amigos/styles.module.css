@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 368px;
+    height: 792px;
+    opacity: 0.5px;
+    background: linear-gradient(to bottom, #FEE5C8 0%, #FEE5C8 30px, white 100px, white 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

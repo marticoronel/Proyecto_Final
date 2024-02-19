@@ -145,6 +145,10 @@ input[type="password"] {
     color: #26262E;
 }
 
+.btn_continuar {
+    margin-top: 300px;
+}
+
 .heading_4 {
     font-family: Rubik;
     font-size: 18px;

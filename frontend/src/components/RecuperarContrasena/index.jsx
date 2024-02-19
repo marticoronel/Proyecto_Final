@@ -40,7 +40,7 @@ export default function RecuperarContrasena() {
                 <div className={styles.bodyBodyVerySmall}>Deberás poder ingresar al e-mail de la cuenta
                     <br /> para poder recuperarla.</div>
             </form>
-            <button className={styles.btn_standard} onClick={() => navigate('/login')}>
+            <button className={`${styles.btn_standard} ${styles.btn_continuar}`} onClick={() => navigate('/login')}>
                 <h2 className={styles.btn_standard2_texto}>Continuar</h2>
             </button>
         </div>
