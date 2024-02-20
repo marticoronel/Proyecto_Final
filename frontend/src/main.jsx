@@ -32,11 +32,11 @@ const router = createBrowserRouter([
     element: <RecuperarContrasena />,
   },
   {
-    path: '/registrarse',
+    path: '/ingreso_email',
     element: <Registrarse />,
   },
   {
-    path: '/registrarse/nombre_usuario',
+    path: '/registrarse',
     element: <NombreUsuario />,
   },
   {
@@ -63,7 +63,6 @@ const router = createBrowserRouter([
     path: '/amigos',
     element: <Amigos />,
   },
-  // Puedes agregar más rutas según tus necesidades
 ]);
 
 createRoot(document.getElementById('root')).render(

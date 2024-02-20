@@ -4,14 +4,6 @@ const app = express();
 const router = require('./routes/index');
 const port = process.env.PORT || 3000;
 
-// const { Sequelize } = require('sequelize');
-
-// const sequelize = new Sequelize('proyectoAUDN', 'postgres', 'loira', {
-//   host: 'localhost',
-//   dialect:'postgres'
-// });
-
-
 const dotenv = require('dotenv').config();
 
 app.use(cors());

@@ -12,7 +12,7 @@ export default function inicio() {
     };
 
     const handleRegistrarseClick = () => {
-        navigate('/registrarse');
+        navigate('/ingreso_email');
     };
 
     return (

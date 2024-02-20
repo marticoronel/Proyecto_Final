@@ -14,8 +14,8 @@ function App() {
         <Route path="/" element={<Inicio />} />
         <Route path="/login" element={<Login />} />
         <Route path="/recuperar_contrasena" element={<RecuperarContrasena />} />
-        <Route path="/registrarse" element={<Registrarse />} />
-        <Route path="/registrarse/nombre_usuario" element={<NombreUsuario />} />
+        <Route path="/ingreso_email" element={<Registrarse />} />
+        <Route path="/registrarse" element={<NombreUsuario />} />
         <Route path="/home" element={<Home />} />
       </Routes>
     </Router>

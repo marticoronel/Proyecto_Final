@@ -4,15 +4,40 @@ const knex = require('../knexfile');
 const cors = require('cors');
 
 
+async function registrarMailUsuario(req, res) {
+  try {
+    const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).json({ message: 'El campo e-mail es obligatorio.' });
+    }
+
+    const usuarioExistente = await knex('usuarios').where({ email: email }).first();
+    if (usuarioExistente) {
+      return res.status(400).json({ message: 'El usuario ya existe.' });
+    }
+
+    await knex('usuarios').insert({
+      email: email, 
+    });
+
+    res.status(201) .json({ message: 'Email registrado con éxito.' });
+  } catch (error) {
+    console.error('Error en registrar email usuario:', error);
+    res.status(500).json({ message: 'Error interno del servidor.' });
+  }
+}
+
+
 async function registrarUsuario(req, res) {
   try {
-    const { email, nombre_usuario, password } = req.body;
+    const { identificador, password } = req.body;
 
-    if (!email || !nombre_usuario || !password) {
+    if (!identificador || !password) {
       return res.status(400).json({ message: 'Todos los campos son obligatorios.' });
     }
 
-    const usuarioExistente = await knex('usuarios').where({ email }).first();
+    const usuarioExistente = await knex('usuarios').where({ nombre_usuario: identificador }).first();
     if (usuarioExistente) {
       return res.status(400).json({ message: 'El usuario ya existe.' });
     }
@@ -20,8 +45,7 @@ async function registrarUsuario(req, res) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await knex('usuarios').insert({
-      email,
-      nombre_usuario,
+      nombre_usuario: identificador, 
       password: hashedPassword,
     });
 
@@ -31,6 +55,7 @@ async function registrarUsuario(req, res) {
     res.status(500).json({ message: 'Error interno del servidor.' });
   }
 }
+
 
 async function loginUsuario(req, res) {
   try {
@@ -69,6 +94,7 @@ async function loginUsuario(req, res) {
 }
 
 module.exports = {
+  registrarMailUsuario,
   registrarUsuario,
   loginUsuario,
 };

@@ -5,25 +5,23 @@ import flecha_retroceder from "../../../public/imgs/login_registrar_IMGS/arrowBa
 
 export default function nombreUsuario() {
     const navigate = useNavigate();
-    const [nombreUsuario, setNombreUsuario] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
+    const [email, setEmail] = useState('');
 
     const handleSubmint = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('http://localhost:3000/registrarse', {
+        const response = await fetch('http://localhost:3000/ingreso_email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ nombre_usuario: nombreUsuario }),
+            body: JSON.stringify({ email: email }),
         });
 
         const data = await response.json();
 
         if (response.status === 200) {
-            localStorage.setItem('token', data.token);
-            navigate('/dashboard');
+            navigate('/registrarse');
         } else {
             alert(data.message);
         }
@@ -44,11 +42,11 @@ export default function nombreUsuario() {
               <div>
                 <input
                   className={styles.inputLabel}
-                  type="text"
-                  id="nombre"
-                  name="nombre_usuario"
-                  value={nombreUsuario}
-                  onChange={(e) => setNombreUsuario(e.target.value)}
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </form>
@@ -57,7 +55,7 @@ export default function nombreUsuario() {
             </div>
             <button
               className={`${styles.btn_standard} ${styles.btn_continuar}`}
-              onClick={() => navigate('/registrarse/nombre_usuario')}
+              onClick={() => navigate('/registrarse')}
               type="submit"
             >
               <h2 className={styles.btn_standard_texto}>Continuar</h2>
