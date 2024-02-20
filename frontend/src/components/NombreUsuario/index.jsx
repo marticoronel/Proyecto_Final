@@ -12,28 +12,37 @@ export default function NombreUsuario() {
         e.preventDefault();
         const nombreUsuario = e.target["identificador"].value;
         const password = e.target["password"].value;
-
+    
         if (!isChecked) {
             alert("Debes aceptar los Términos y Condiciones.");
             return;
         }
-
-        const response = await fetch('http://localhost:3000/registrarse', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ identificador: nombreUsuario, password }),
-        });
-
-        const data = await response.json();
-        if (response.status === 200) {
-            localStorage.setItem('token', data.token);
-            navigate('/login');
-        } else {
-            alert(data.message);
+    
+        const email = localStorage.getItem('email');
+    
+        try {
+            const response = await fetch('http://localhost:3000/registrarse', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ identificador: nombreUsuario, password, email }),
+            });
+    
+            const data = await response.json();
+    
+            if (response.status === 200) {
+                localStorage.setItem('token', data.token);
+                navigate('/home');
+            } else {
+                alert(data.message);
+            }
+        } catch (error) {
+            console.error("Error en el registro:", error);
         }
     };
+    
+    
 
     const visibilidadContrasena = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -52,10 +61,10 @@ export default function NombreUsuario() {
                 <div className={styles.inputDiv}>
                     <div className={styles.heading_4}>Nombre de Usuario:</div>
                     <div>
-                        <input className={styles.inputLabel} 
-                        type="text" 
-                        id="identificador" 
-                        name="identificador" />
+                        <input className={styles.inputLabel}
+                            type="text"
+                            id="identificador"
+                            name="identificador" />
                     </div>
                 </div>
                 <div className={styles.inputDiv}>
@@ -86,7 +95,7 @@ export default function NombreUsuario() {
                     />
                     <label className={styles.bodyBodyVerySmall} htmlFor="aceptarTerminos">He leído y acepto los Términos y Condiciones.</label>
                 </div>
-                <button className={`${styles.btn_standard} ${styles.btn_continuar}`} type="submit" onClick={() => navigate('/home')}>
+                <button className={`${styles.btn_standard} ${styles.btn_continuar}`} type="submit">
                     <h2 className={styles.btn_standard_texto}>Continuar</h2>
                 </button>
             </form>

@@ -2,7 +2,9 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const knex = require('../knexfile');
 const cors = require('cors');
+const e = require('cors');
 
+let savedEmail = '';
 
 async function registrarMailUsuario(req, res) {
   try {
@@ -18,10 +20,12 @@ async function registrarMailUsuario(req, res) {
     }
 
     await knex('usuarios').insert({
-      email: email, 
+      email: email,
     });
 
-    res.status(201) .json({ message: 'Email registrado con éxito.' });
+    savedEmail = email;
+
+    res.status(201).json({ message: 'Email registrado con éxito.' });
   } catch (error) {
     console.error('Error en registrar email usuario:', error);
     res.status(500).json({ message: 'Error interno del servidor.' });
@@ -31,7 +35,7 @@ async function registrarMailUsuario(req, res) {
 
 async function registrarUsuario(req, res) {
   try {
-    const { identificador, password } = req.body;
+    const { email, identificador, password } = req.body; // Agrega "email" aquí
 
     if (!identificador || !password) {
       return res.status(400).json({ message: 'Todos los campos son obligatorios.' });
@@ -45,7 +49,8 @@ async function registrarUsuario(req, res) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await knex('usuarios').insert({
-      nombre_usuario: identificador, 
+      email: email,
+      nombre_usuario: identificador,
       password: hashedPassword,
     });
 
@@ -57,6 +62,7 @@ async function registrarUsuario(req, res) {
 }
 
 
+
 async function loginUsuario(req, res) {
   try {
     const { identificador, password } = req.body;
@@ -66,14 +72,14 @@ async function loginUsuario(req, res) {
     }
 
 
-        const usuario = await knex('usuarios')
-      .where(function() {
+    const usuario = await knex('usuarios')
+      .where(function () {
         this.where('email', identificador).orWhere('nombre_usuario', identificador);
       })
       .first();
 
-      console.log(identificador);
-      console.log(password);
+    console.log(identificador);
+    console.log(password);
 
 
     if (!usuario) {
@@ -87,7 +93,7 @@ async function loginUsuario(req, res) {
 
     const token = jwt.sign({ usuarioId: usuario.id }, process.env.JWT_SECRET || 'secreto', { expiresIn: '1h' });
 
-    res.status(200).json({ 'logeado con exito' :token });
+    res.status(200).json({ 'logeado con exito': token });
   } catch (error) {
     res.status(500).json({ message: 'Error interno del servidor.' });
   }
