@@ -34,20 +34,21 @@ async function registrarUsuario(req, res) {
 
 async function loginUsuario(req, res) {
   try {
-    const { email, nombre_usuario, password } = req.body;
+    const { identificador, password } = req.body;
 
-    if (!email || (!nombre_usuario && !password)) {
+    if (!identificador || !password) {
       return res.status(400).json({ message: 'Usuario no encontrado.' });
     }
 
-    const usuario = await knex('usuarios')
+
+        const usuario = await knex('usuarios')
       .where(function() {
-        this.where('email', email).orWhere('nombre_usuario', nombre_usuario);
+        this.where('email', identificador).orWhere('nombre_usuario', identificador);
       })
       .first();
 
-      console.log(email);
-      console.log(nombre_usuario);
+      console.log(identificador);
+      console.log(password);
 
 
     if (!usuario) {

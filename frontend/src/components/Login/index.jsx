@@ -5,10 +5,8 @@ import flecha_retroceder from "../../../public/imgs/login_registrar_IMGS/arrowBa
 
 export default function Login() {
     const navigate = useNavigate();
-    const [email, setEmail] = useState('');
+    const [identificador, setIdentificador] = useState('');
     const [password, setPassword] = useState('');
-    const [nombre_usuario, setNombre_usuario] = useState('');
-
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
 
@@ -21,16 +19,16 @@ export default function Login() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, nombre_usuario, password }),
+                body: JSON.stringify({ identificador, password }),
             });
 
             console.log(password);
-            console.log(email);
+            console.log(identificador);
 
             const data = await response.json();
             if (response.ok) {
                 localStorage.setItem('Authorization', data.token);
-                navigate('/inicio');
+                navigate('/home');
             } else {
                 setError(data.message);
             }
@@ -57,11 +55,11 @@ export default function Login() {
                     <div>
                         <input
                             className={styles.inputLabel}
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            type="text"
+                            id="identificador"
+                            name="identificador"
+                            value={identificador}
+                            onChange={(e) => setIdentificador(e.target.value)}
                         />
                     </div>
                 </div>

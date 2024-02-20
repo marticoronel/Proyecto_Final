@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     res.send('HOME');
 });
 
-router.post('/registrar', userRoutes);
+router.post('/registrarse', userRoutes);
 
 
 router.post('/login', userRoutes);
