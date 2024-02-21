@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 router.post('/ingreso_email', userRoutes);
 router.post('/registrarse', userRoutes);
 router.post('/login', userRoutes);
+router.get('/home', userRoutes);
 
 module.exports = router;
 

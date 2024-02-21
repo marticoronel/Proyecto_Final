@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const knex = require('../knexfile');
+const knexfile = require('../knexfile');
+const knex = require('knex')(knexfile);
 const cors = require('cors');
 const e = require('cors');
 
@@ -35,7 +36,7 @@ async function registrarMailUsuario(req, res) {
 
 async function registrarUsuario(req, res) {
   try {
-    const { email, identificador, password } = req.body; // Agrega "email" aquí
+    const { email, identificador, password } = req.body;
 
     if (!identificador || !password) {
       return res.status(400).json({ message: 'Todos los campos son obligatorios.' });

@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import styles from './styles.module.css';
 import flecha_retroceder from "../../../public/imgs/login_registrar_IMGS/arrowBack.png";
+import { useNavigate } from "react-router-dom";
 
 export default function NombreUsuario() {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
 
-    const handleSubmint = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const nombreUsuario = e.target["identificador"].value;
         const password = e.target["password"].value;
     
+        console.log("Se hizo clic en Continuar")
+        
         if (!isChecked) {
             alert("Debes aceptar los Términos y Condiciones.");
             return;
@@ -33,17 +35,15 @@ export default function NombreUsuario() {
     
             if (response.status === 200) {
                 localStorage.setItem('token', data.token);
-                navigate('/home');
             } else {
-                alert(data.message);
+                console.log(data.message);
             }
+            navigate('/home');
         } catch (error) {
             console.error("Error en el registro:", error);
         }
     };
     
-    
-
     const visibilidadContrasena = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
     };
@@ -57,7 +57,7 @@ export default function NombreUsuario() {
                 <h2 className={styles.heading_5}>Crear Cuenta</h2>
             </div>
             <div className={styles.heading_3}>Ingresa un nombre de usuario y contraseña.</div>
-            <form onSubmit={handleSubmint}>
+            <form onSubmit={handleSubmit}>
                 <div className={styles.inputDiv}>
                     <div className={styles.heading_4}>Nombre de Usuario:</div>
                     <div>
