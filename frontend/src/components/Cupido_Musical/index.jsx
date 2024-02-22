@@ -5,6 +5,7 @@ import flecha_retroceder from "../../../public/imgs/login_registrar_IMGS/arrowBa
 import Button from "../botones/BotonGeneral";
 import BotonCorazon from "../botones/BotonCorazon";
 import BotonEquix from "../botones/BotonEquix";
+import ImagenAutor from "../Portadas/ImagenAutor";
 
 
 export default function Cupido_Musical() {
@@ -21,6 +22,7 @@ export default function Cupido_Musical() {
 
                 </div>
             </div>
+            <ImagenAutor className={styles.img_autor}></ImagenAutor>
             <Button className={styles.btn_crearPlayList}>Crear Playlist</Button>
             <BotonCorazon className={styles.btn_corazon}></BotonCorazon>
             <BotonEquix className={styles.btn_equix}></BotonEquix>
