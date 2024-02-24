@@ -5,7 +5,7 @@
 exports.up = function (knex) {
     return knex.schema.createTable("discos", function (table) {
         table.increments("id").primary();
-        table.integer("id_musico").references("id").inTable("musicos");
+        table.integer("id_musicos").references("id").inTable("musicos");
         table.text("nombre_disco");
         table.text("tapa_disco");
     });
