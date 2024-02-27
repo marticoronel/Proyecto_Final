@@ -96,3 +96,8 @@
     border-bottom-left-radius: 48px;
     overflow: hidden;
 }
+
+.tapa_disco {
+    height: 50px;
+    width: 50px;
+}

@@ -100,6 +100,7 @@ async function loginUsuario(req, res) {
   }
 }
 
+
 module.exports = {
   registrarMailUsuario,
   registrarUsuario,
