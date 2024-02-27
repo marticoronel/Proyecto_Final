@@ -4,6 +4,7 @@
  */
 exports.up = function (knex) {
     return knex.schema.createTable("genero_canciones", function (table) {
+        table.increments();
         table.integer("id_cancion").references("id").inTable("canciones");
         table.integer("id_genero").references("id").inTable("generos");
     });
