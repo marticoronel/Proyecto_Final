@@ -98,6 +98,30 @@
 }
 
 .tapa_disco {
-    height: 50px;
-    width: 50px;
+    position: absolute;
+    top: 96px;
+    /* left: 43.9px; */
+    width: 272px;
+    height: 272px;
+    border-top-right-radius: 48px;
+    border-bottom-left-radius: 48px;
+    overflow: hidden;
+}
+
+p::first-letter {
+    text-transform: uppercase;
+  }
+
+.nombre_cantante {
+    position: absolute;
+    font-family: Rubik;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    width: 320px;
+    height: 28px;
+    top: 424px;
+    /* left: 40px; */
 }

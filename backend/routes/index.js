@@ -11,6 +11,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/cupido_musical/cantantes/primero', cupidoRoutes);
+router.get('/cupido_musical/cantantes/todos', cupidoRoutes);
+router.get('/cupido_musical/cantantes/soloCantantes', cupidoRoutes);
+
+router.post('/cupido_musical/playlist', cupidoRoutes);
+
 router.post('/ingreso_email', userRoutes);
 router.post('/registrarse', userRoutes);
 router.post('/login', userRoutes);
