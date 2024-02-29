@@ -17,6 +17,9 @@ import Perfil from './components/Perfil';
 import Amigos from './components/Amigos';
 import Cupido_Musical from './components/Cupido_Musical';
 import Musica_Contextual from './components/Musica_Contextual';
+import Playlist_Contextual from './components/PlaylistContextual';
+
+
 
 const router = createBrowserRouter([
   {
@@ -46,6 +49,10 @@ const router = createBrowserRouter([
   {
     path: '/musica_contextual',
     element: <Musica_Contextual />,
+  },
+  {
+    path: '/playlist_contextual',
+    element: <Playlist_Contextual />,
   },
   {
     path: '/home',

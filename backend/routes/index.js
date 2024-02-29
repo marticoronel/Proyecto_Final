@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userRoutes = require('./users.routes');
 const cupidoRoutes = require('./cupido.routes');
+const contextualRoutes = require('./contextual.routes');
 const knex = require('../knexfile');
 const cors = require('cors');
 
@@ -17,6 +18,9 @@ router.get('/cupido_musical/cantantes/todos', cupidoRoutes);
 router.get('/cupido_musical/cantantes/soloCantantes', cupidoRoutes);
 
 router.post('/cupido_musical/playlist', cupidoRoutes);
+
+router.use('/musica_contextual', contextualRoutes);
+
 
 router.post('/ingreso_email', userRoutes);
 router.post('/registrarse', userRoutes);
