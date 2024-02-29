@@ -3,21 +3,24 @@ import { useNavigate } from 'react-router-dom';
 
 const PlaylistContextual = () => {
   const [canciones, setCanciones] = useState([]);
-  const [generosSeleccionados, setGenerosSeleccionados] = useState([]);
+  // const [generosSeleccionados, setGenerosSeleccionados] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
+    const selectedGeneros = JSON.parse(localStorage.getItem('selectedGeneros'));
+    // setGenerosSeleccionados(selectedGeneros);
+    
     fetch('http://localhost:3000/musica_contextual/playlist_contextual', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ generos: generosSeleccionados }),
+      body: JSON.stringify({ generos: selectedGeneros }),
     })
       .then(response => response.json())
       .then(data => setCanciones(data))
       .catch(error => console.error('Error al obtener las canciones:', error));
-  }, [generosSeleccionados]);
+  }, []);
 
   return (
     <div>
