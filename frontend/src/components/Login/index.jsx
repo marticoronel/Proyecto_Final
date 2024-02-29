@@ -27,7 +27,7 @@ export default function Login() {
 
             const data = await response.json();
             if (response.ok) {
-                localStorage.setItem('Authorization', data.token);
+                localStorage.setItem('token', data.token);
                 navigate('/home');
             } else {
                 setError(data.message);

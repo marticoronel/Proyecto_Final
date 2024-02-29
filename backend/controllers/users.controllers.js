@@ -94,10 +94,11 @@ async function loginUsuario(req, res) {
 
     const token = jwt.sign({ usuarioId: usuario.id }, process.env.JWT_SECRET || 'secreto', { expiresIn: '1h' });
 
-    res.status(200).json({ 'logeado con exito': token });
+    res.status(200).json({ 'token': token });
   } catch (error) {
     res.status(500).json({ message: 'Error interno del servidor.' });
   }
+
 }
 
 

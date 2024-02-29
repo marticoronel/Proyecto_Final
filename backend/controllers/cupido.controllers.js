@@ -78,12 +78,21 @@ async function soloCantantes(req, res) {
 }
 
 async function guardarPlaylist(req, res) {
+   const authHeader = req.headers['authorization'];
+   console.log(authHeader);
+   const usuario_id = "usuario desencriptado"; 
    try {
      // Obtener la lista de reproducción del cuerpo de la solicitud
-     const listaReproduccion = req.body;
- 
+     const idDeMusicos = req.body;
+     const canciones = knex.raw(`
+       SELECT * 
+       FROM canciones
+       WHERE id_musicos IN (${idDeMusicos.join(',')});
+     `);
+
      // Insertar la lista de reproducción en la base de datos
-     await knex('playlist_usuarios').insert(listaReproduccion);
+     await knex('playlist').insert({ nombre: 'cupido', id_usuario: usuario_id });
+
  
      // Enviar una respuesta de éxito
      res.status(200).json({ message: 'Lista de reproducción guardada exitosamente.' });

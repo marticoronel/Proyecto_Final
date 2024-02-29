@@ -31,16 +31,23 @@ export default function Cupido_Musical() {
   };
 
   const agregarCantanteAPlaylist = () => {
-    const cantanteActual = cantantes[indiceCantanteActual];
-    setSelectedCantantes(prevSelectedCantantes => [...prevSelectedCantantes, cantanteActual]);
-  };
+  const idCantanteActual = cantantes[indiceCantanteActual].id_cantante;
+  setSelectedCantantes(prevSelectedCantantes => [...prevSelectedCantantes, idCantanteActual]);
+};
 
   const guardarPlaylistEnBaseDeDatos = async () => {
     try {
       // Realiza una solicitud para guardar la lista de cantantes en la base de datos
-      await axios.post('http://localhost:3000/cupido_musical/playlist', selectedCantantes);
+      await axios.post('http://localhost:3000/cupido_musical/playlist', selectedCantantes, {
+        headers: {
+          'Authorization': localStorage.getItem('token')
+        }
+      });
+      
+
       // Limpiar la lista de cantantes seleccionados después de guardarlos en la base de datos
       setSelectedCantantes([]);
+
     } catch (error) {
       console.error('Error al guardar la playlist en la base de datos:', error);
     }
