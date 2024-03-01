@@ -74,11 +74,11 @@ const MusicaContextual = () => {
 
   return (
     <div className={styles.body}>
-      <div className={styles.header}>
+      <div className={styles.login_header}>
         <button className={styles.btn_arrow} onClick={() => navigate('/home')}>
           <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atrás" />
         </button>
-        <h2 className={styles.heading_5}>Música Contextual</h2>
+        <h2 className={styles.heading_5}>Iniciar Sesión</h2>
       </div>
       <div className={styles.input_header_ocasion}>
         <label className={`${styles.heading_4} ${styles.ocasiones}`} htmlFor="ocasion">¿Cuál es la ocasión?</label>
