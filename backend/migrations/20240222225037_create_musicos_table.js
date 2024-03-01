@@ -6,6 +6,7 @@ exports.up = function (knex) {
     return knex.schema.createTable("musicos", function (table) {
         table.increments("id").primary();
         table.text("nombre_cantante");
+        table.text("tapa_cantante");
     });
 };
 

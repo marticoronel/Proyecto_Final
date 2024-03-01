@@ -18,6 +18,17 @@
     Left: 24px;
 }
 
+.login_header {
+    width: 320px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    Top: 24px;
+    Left: 24px;
+    z-index: 1;
+}
+
 .btn {
     width: auto;
     height: 36px;
