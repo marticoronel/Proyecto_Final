@@ -80,7 +80,8 @@ async function soloCantantes(req, res) {
 async function guardarPlaylist(req, res) {
    const authHeader = req.headers['authorization'];
    console.log(authHeader);
-   const usuario_id = "usuario desencriptado"; 
+   const usuario_id = req.user.usuarioId; 
+   console.log(req.user.usuarioId);
    try {
      // Obtener la lista de reproducción del cuerpo de la solicitud
      const idDeMusicos = req.body;
