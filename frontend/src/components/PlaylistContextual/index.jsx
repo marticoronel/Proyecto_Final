@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from './styles.module.css';
 
 const PlaylistContextual = () => {
   const [canciones, setCanciones] = useState([]);
@@ -30,11 +31,11 @@ const PlaylistContextual = () => {
             <li key={index}>{cancion.nombre_cancion}</li>
           ))
         ) : (
-          <p>No hay canciones disponibles.</p>
+          <p>Cargando...</p>
         )}
       </ul>
 
-      <button onClick={() => navigate('/musica_contextual')}>Volver</button>
+      <button  onClick={() => navigate('/musica_contextual')}>Volver</button>
     </div>
   );
 };

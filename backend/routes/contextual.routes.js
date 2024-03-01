@@ -8,5 +8,9 @@ router.use(cors());
 router.get('/generos', contextualControllers.obtenerGeneros);
 router.post('/playlist', contextualControllers.guardarPlaylist);
 router.post('/playlist_contextual', contextualControllers.guardarPlaylist);
+router.get('/ocasiones', contextualControllers.obtenerOcasionesDesdeDB);
+router.get('/clima', contextualControllers.obtenerClimaDesdeDB);
+router.get('/estados_animo', contextualControllers.obtenerEstadosDesdeDB);
+
 
 module.exports = router;
