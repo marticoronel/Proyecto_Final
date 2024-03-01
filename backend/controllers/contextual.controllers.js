@@ -48,7 +48,41 @@ async function guardarPlaylist(req, res) {
     }
 }
 
+
+async function obtenerOcasionesDesdeDB(req, res) {
+    try {
+        const result = await knex('ocasiones').select('nombre_actividad');
+        res.json(result);
+    } catch (error) {
+        console.error('Error al obtener los géneros:', error);
+        res.status(500).json({ error: 'Error al obtener las ocasiones' });
+    }
+}
+
+async function obtenerClimaDesdeDB(req, res) {
+    try {
+        const result = await knex('clima').select('tipo_clima');
+        res.json(result);
+    } catch (error) {
+        console.error('Error al obtener los géneros:', error);
+        res.status(500).json({ error: 'Error al obtener las ocasiones' });
+    }
+}
+
+async function obtenerEstadosDesdeDB(req, res) {
+    try {
+        const result = await knex('estados_animo').select('estado_animo');
+        res.json(result);
+    } catch (error) {
+        console.error('Error al obtener los géneros:', error);
+        res.status(500).json({ error: 'Error al obtener las ocasiones' });
+    }
+}
+
 module.exports = {
     obtenerGeneros,
-    guardarPlaylist
+    guardarPlaylist,
+    obtenerOcasionesDesdeDB,
+    obtenerClimaDesdeDB,
+    obtenerEstadosDesdeDB,
 };
