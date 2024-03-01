@@ -47,7 +47,7 @@ const MusicaContextual = () => {
 
         localStorage.setItem('selectedGeneros', JSON.stringify(selectedGeneros));
 
-        // navigate('/playlist_contextual');
+        navigate('/playlist_contextual');
       })
       .catch(error => console.error('Error al obtener la playlist:', error));
   };
