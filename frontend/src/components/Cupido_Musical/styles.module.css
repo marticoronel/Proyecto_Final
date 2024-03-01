@@ -132,6 +132,12 @@ p::first-letter {
 .siguiente_tapa_disco {
     position: absolute;
     z-index: 0;
-    width: 272px;
-    height: 272px;
+    width: 204px;
+    height: 204px;
+    top: 32px;
+    left: 180px;
+    rotate: 10.45deg;
+    border-top-right-radius: 48px;
+    border-bottom-left-radius: 48px;
+    overflow: hidden;
 }
