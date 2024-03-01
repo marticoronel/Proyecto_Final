@@ -92,7 +92,7 @@ async function guardarPlaylist(req, res) {
      `);
 
       // Insertar la lista de reproducción en la base de datos
-      const playlist = await knex('playlist').insert({ nombre: 'cupido', id_usuario: usuario_id }).returning('*');
+      const playlist = await knex('playlist').insert({ nombre: 'cupido ', id_usuario: usuario_id }).returning('*');
       const idPlaylist = playlist[0].id;
 
       for (const cancion of canciones.rows) {
@@ -100,6 +100,7 @@ async function guardarPlaylist(req, res) {
          await knex('playlist_canciones').insert({ id_playlist: idPlaylist, id_canciones: cancion.id });
 
       }
+      console.log(idPlaylist);
 
       // Enviar una respuesta de éxito
       res.status(200).json({ message: 'Lista de reproducción guardada exitosamente.' });
