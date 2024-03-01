@@ -38,7 +38,7 @@ export default function NombreUsuario() {
             } else {
                 console.log(data.message);
             }
-            navigate('/home');
+            navigate('/');
         } catch (error) {
             console.error("Error en el registro:", error);
         }
