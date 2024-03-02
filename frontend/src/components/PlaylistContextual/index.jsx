@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import CancionItem from '../CancionItem';
 import styles from './styles.module.css';
 
 const PlaylistContextual = () => {
   const [canciones, setCanciones] = useState([]);
-  // const [generosSeleccionados, setGenerosSeleccionados] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     const selectedGeneros = JSON.parse(localStorage.getItem('selectedGeneros'));
-    // setGenerosSeleccionados(selectedGeneros);
     
     fetch('http://localhost:3000/musica_contextual/playlist_contextual', {
       method: 'POST',
@@ -25,17 +24,17 @@ const PlaylistContextual = () => {
 
   return (
     <div>
+      <h2>Canciones de la Playlist:</h2>
       <ul>
         {canciones.length > 0 ? (
           canciones.map((cancion, index) => (
-            <li key={index}>{cancion.nombre_cancion}</li>
+            <CancionItem key={index} cancion={cancion} />
           ))
         ) : (
           <p>Cargando...</p>
         )}
       </ul>
-
-      <button  onClick={() => navigate('/musica_contextual')}>Volver</button>
+      <button onClick={() => navigate('/musica_contextual')}>Volver</button>
     </div>
   );
 };
