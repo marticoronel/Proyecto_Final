@@ -40,17 +40,14 @@ async function guardarPlaylist(req, res) {
 
         console.log('Canciones obtenidas:', cancionesResult);
 
-        // Obtener información de los músicos
         const musicosResult = await knex('musicos')
             .select('id', 'nombre_cantante')
             .whereIn('id', cancionesResult.map(cancion => cancion.id_musicos));
 
-        // Obtener información de los discos
         const discosResult = await knex('discos')
             .select('id', 'tapa_disco')
             .whereIn('id', cancionesResult.map(cancion => cancion.id_discos));
 
-        // Combinar la información adicional con el resultado de las canciones
         const playlistResult = cancionesResult.map(cancion => {
             const musico = musicosResult.find(musico => musico.id === cancion.id_musicos);
             const disco = discosResult.find(disco => disco.id === cancion.id_discos);

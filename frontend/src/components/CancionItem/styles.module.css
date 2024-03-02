@@ -1,0 +1,108 @@
+.body {
+    width: 320px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    top: 356px;
+    left: 24px;
+
+}
+
+.login_header {
+    width: 320px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    Top: 24px;
+    Left: 24px;
+    z-index: 1;
+}
+
+.btn_arrow {
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    background: none;
+    border: none;
+}
+
+.arrow {
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+}
+
+.cancion_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    height: 48px;
+    gap: 15px;
+    margin: 5px 0px;
+    position: relative;
+}
+
+.album_cover {
+    width: 48px;
+    height: 48px;
+}
+
+.song_details {
+    width: 218px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.song_name {
+    font-weight: bold;
+    font-size: 16px;
+    /* ajusta el tamaño según tus preferencias */
+}
+
+.artist_name {
+    font-size: 14px;
+    /* ajusta el tamaño según tus preferencias */
+}
+
+.vertical_dots {
+    position: relative;
+    width: 4px;
+    height: 20px;
+    left: 50% - 4px/2;
+    top: 50% - 20px/2;
+}
+
+.Body_Small_14px_Medium {
+    font-family: Rubik;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    width: 218px;
+    height: 21px;
+    gap: 8px
+}
+
+.Body_Very_Small_12px_Regular {
+    font-family: Rubik;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    width: 218px;
+    height: 18px;
+    color: #838486;
+    text-transform: capitalize;
+}
