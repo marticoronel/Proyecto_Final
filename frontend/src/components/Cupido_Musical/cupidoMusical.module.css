@@ -1,18 +1,14 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* frontend\src\components\Cupido_Musical\cupidoMusical.module.css */
 .container {
+    position: absolute;
     width: 368px;
     height: 792px;
     opacity: 0.5px;
     background: linear-gradient(to bottom, #FEE5C8 0%, #FEE5C8 30px, white 100px, white 100%);
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 10px; */
 }
 
 .login_header {
@@ -37,23 +33,6 @@
     border: none;
 }
 
-.heading_5 {
-    font-family: Rubik;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    letter-spacing: 0.5px;
-    text-align: center;
-    width: 320px;
-    height: 40px;
-    top: 24px;
-    left: 24px;
-    padding: 0px, 24px, 0px, 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #26262E;
-}
 
 .btn_crearPlayList {
     position: absolute;
@@ -73,8 +52,8 @@
 .btn_corazon {
     position: absolute;
     z-index: 2;
-    top: 320px;
-    left: 64px;
+    top: 390px;
+    left: 100px;
     width: 64px;
     height: 64px;
 }
@@ -82,15 +61,15 @@
 .btn_equix {
     position: absolute;
     z-index: 2;
-    top: 320px;
-    left: 192px;
+    top: 390px;
+    left: 198px;
     width: 64px;
     height: 64px;
 }
 
 .img_autor {
     position: absolute;
-    top: 96px;
+    top: 156px;
     left: 43.9px;
     width: 272px;
     height: 272px;
@@ -102,8 +81,8 @@
 .tapa_disco {
     position: absolute;
     z-index: 1;
-    top: 96px;
-    /* left: 43.9px; */
+    top: 156px;
+    left: 43.9px;
     width: 272px;
     height: 272px;
     border-top-right-radius: 48px;
@@ -125,19 +104,20 @@ p::first-letter {
     text-align: center;
     width: 320px;
     height: 28px;
-    top: 424px;
-    /* left: 40px; */
+    top: 484px;
+    left: 21px;
 }
 
 .siguiente_tapa_disco {
-    position: absolute;
+    position: fixed;
     z-index: 0;
     width: 204px;
     height: 204px;
-    top: 32px;
+    top: 92px;
     left: 180px;
     rotate: 10.45deg;
     border-top-right-radius: 48px;
     border-bottom-left-radius: 48px;
     overflow: hidden;
+    opacity: 0.3;
 }

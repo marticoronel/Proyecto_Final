@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from './styles.module.css';
+import styles from './cupidoMusical.module.css';
 import axios from 'axios';
 import Button from "../botones/BotonGeneral";
 import BotonCorazon from "../botones/BotonCorazon";
