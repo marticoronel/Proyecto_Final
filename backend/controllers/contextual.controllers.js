@@ -35,18 +35,41 @@ async function guardarPlaylist(req, res) {
         console.log('IDs de Canciones:', idsCanciones);
 
         const cancionesResult = await knex('canciones')
-            .select('nombre_cancion', 'id_musicos')
+            .select('nombre_cancion', 'id_musicos', 'id_discos')
             .whereIn('id', idsCanciones);
 
         console.log('Canciones obtenidas:', cancionesResult);
 
-        res.json(cancionesResult);
+        // Obtener información de los músicos
+        const musicosResult = await knex('musicos')
+            .select('id', 'nombre_cantante')
+            .whereIn('id', cancionesResult.map(cancion => cancion.id_musicos));
+
+        // Obtener información de los discos
+        const discosResult = await knex('discos')
+            .select('id', 'tapa_disco')
+            .whereIn('id', cancionesResult.map(cancion => cancion.id_discos));
+
+        // Combinar la información adicional con el resultado de las canciones
+        const playlistResult = cancionesResult.map(cancion => {
+            const musico = musicosResult.find(musico => musico.id === cancion.id_musicos);
+            const disco = discosResult.find(disco => disco.id === cancion.id_discos);
+
+            return {
+                nombre_cancion: cancion.nombre_cancion,
+                nombre_cantante: musico ? musico.nombre_cantante : 'Desconocido',
+                tapa_disco: disco ? disco.tapa_disco : 'Desconocido',
+            };
+        });
+
+        res.json(playlistResult);
 
     } catch (error) {
         console.error('Error al generar la playlist:', error);
         res.status(500).json({ error: 'Error al generar la playlist.' });
     }
 }
+
 
 
 async function obtenerOcasionesDesdeDB(req, res) {
