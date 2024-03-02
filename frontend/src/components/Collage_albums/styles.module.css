@@ -1,0 +1,47 @@
+.cuadrado_fotos {
+  position: relative;
+  width: 224px;
+  height: 224px;
+  top: 88px;
+  left: 72px;
+  background-color: none;
+  background: none;
+  box-shadow: 4px 2px 12px 0px #08081114;
+}
+
+.cuadrado_contenedor {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  background-color: none;
+}
+
+.imagen_1,
+.imagen_2,
+.imagen_3,
+.imagen_4 {
+  width: 112px;
+  height: 112px;
+}
+
+.imagen_2 {
+  grid-column: 2;
+}
+
+.imagen_3 {
+  grid-row: 2;
+}
+
+.imagen_4 {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+/* Ajustes para bordes redondeados */
+.imagen_2, .imagen_4 {
+  border-radius: 0px 32.94px 0px 0px;
+}
+
+.imagen_3 {
+  border-radius: 0px 0px 0px 32.94px;
+}

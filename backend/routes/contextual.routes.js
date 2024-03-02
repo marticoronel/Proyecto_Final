@@ -11,6 +11,7 @@ router.post('/playlist_contextual', contextualControllers.guardarPlaylist);
 router.get('/ocasiones', contextualControllers.obtenerOcasionesDesdeDB);
 router.get('/clima', contextualControllers.obtenerClimaDesdeDB);
 router.get('/estados_animo', contextualControllers.obtenerEstadosDesdeDB);
+router.get('/discos', contextualControllers.obtenerTapasDiscos);
 
 
 module.exports = router;

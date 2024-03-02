@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './styles.module.css';
-import flecha_retroceder from "../../../public/imgs/login_registrar_IMGS/arrowBack.png";
 
 
 const CancionItem = ({ cancion }) => {

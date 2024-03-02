@@ -6,7 +6,6 @@ const app = express();
 
 app.use(cors());
 
-
 async function obtenerGeneros(req, res) {
     try {
         const result = await knex('generos').select('nombre_genero', 'id');
@@ -21,7 +20,7 @@ async function guardarPlaylist(req, res) {
     try {
         const { generos } = req.body;
 
-        console.log('Géneros recibidos para la playlist:', generos);
+        // console.log('Géneros recibidos para la playlist:', generos);
 
         if (!generos || generos.length === 0) {
             return res.status(400).json({ error: 'Debes proporcionar al menos un género.' });
@@ -32,13 +31,13 @@ async function guardarPlaylist(req, res) {
             .whereIn('gc.id_genero', generos);
 
         const idsCanciones = result.map(cancion => cancion.id_cancion);
-        console.log('IDs de Canciones:', idsCanciones);
+        // console.log('IDs de Canciones:', idsCanciones);
 
         const cancionesResult = await knex('canciones')
             .select('nombre_cancion', 'id_musicos', 'id_discos')
             .whereIn('id', idsCanciones);
 
-        console.log('Canciones obtenidas:', cancionesResult);
+        // console.log('Canciones obtenidas:', cancionesResult);
 
         const musicosResult = await knex('musicos')
             .select('id', 'nombre_cantante')
@@ -67,7 +66,28 @@ async function guardarPlaylist(req, res) {
     }
 }
 
+async function obtenerTapasDiscos(req, res) {
+    try {
+        const result = await knex('discos').select('tapa_disco');
+        const tapasDiscos = result.map(disco => disco.tapa_disco);
 
+        // Elegir aleatoriamente 4 tapas de discos
+        const tapasAleatorias = [];
+
+        while (tapasAleatorias.length < 4 && tapasDiscos.length > 0) {
+            const randomIndex = Math.floor(Math.random() * tapasDiscos.length);
+            tapasAleatorias.push(tapasDiscos.splice(randomIndex, 1)[0]);
+        }
+
+        res.json(tapasAleatorias);
+
+        console.log('Tapas de discos obtenidas:', tapasAleatorias);
+
+    } catch (error) {
+        console.error('Error al obtener las tapas de discos:', error);
+        res.status(500).json({ error: 'Error al obtener las tapas de discos' });
+    }
+}
 
 async function obtenerOcasionesDesdeDB(req, res) {
     try {
@@ -105,4 +125,5 @@ module.exports = {
     obtenerOcasionesDesdeDB,
     obtenerClimaDesdeDB,
     obtenerEstadosDesdeDB,
+    obtenerTapasDiscos,
 };

@@ -6,36 +6,11 @@
     flex-direction: column;
     gap: 10px;
     position: relative;
-    top: 356px;
+    top: 155px;
     left: 24px;
-
 }
 
-.login_header {
-    width: 320px;
-    height: 40px;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    Top: 24px;
-    Left: 24px;
-    z-index: 1;
-}
 
-.btn_arrow {
-    width: 20px;
-    height: 20px;
-    margin-top: 10px;
-    background: none;
-    border: none;
-}
-
-.arrow {
-    width: 20px;
-    height: 20px;
-    background: none;
-    border: none;
-}
 
 .cancion_container {
     display: flex;

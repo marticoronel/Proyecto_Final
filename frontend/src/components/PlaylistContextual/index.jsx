@@ -6,6 +6,7 @@ import CancionItem from '../CancionItem';
 import styles from './styles.module.css';
 import flecha_retroceder from "../../../public/imgs/login_registrar_IMGS/arrowBack.png";
 import Footer from "../Footer";
+import Collage_albums from "../Collage_albums";
 
 const PlaylistContextual = () => {
   const [canciones, setCanciones] = useState([]);
@@ -30,12 +31,12 @@ const PlaylistContextual = () => {
     <div className={styles.body}>
       <div className={styles.container}>
         <div className={styles.login_header}>
-          <button className={styles.btn_arrow} onClick={() => navigate('/home')}>
+          <button className={styles.btn_arrow} onClick={() => navigate('/musica_contextual')}>
             <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atrás" />
           </button>
           <h2 className={styles.heading_5}>Playlist Contextual</h2>
         </div>
-
+        < Collage_albums className={styles.collage} />
         <div className={styles.icons}>
           <div className={styles.left_icons}>
             <img className={styles.a_icon} src='../../public/imgs/playlist/a_icon.png' alt="compartir" />
@@ -56,10 +57,7 @@ const PlaylistContextual = () => {
             <img className={styles.flechas} src='../../public/imgs/playlist/flechas.png' alt="" />
             <img className={styles.play} src='../../public/imgs/playlist/play.png' alt="" />
           </div>
-
         </div>
-
-
         <div className={styles.content}>
           <ul>
             {canciones.length > 0 ? (
