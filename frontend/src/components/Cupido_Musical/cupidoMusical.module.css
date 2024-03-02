@@ -16,6 +16,10 @@
     height: 40px;
     display: flex;
     flex-direction: row;
+    position: absolute;
+    z-index: 1;
+    top: 24px;
+    left: 24px;
 }
 
 .btn_arrow {
@@ -31,6 +35,24 @@
     height: 20px;
     background: none;
     border: none;
+}
+
+.heading_5 {
+    font-family: Rubik;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    width: 320px;
+    height: 40px;
+    top: 24px;
+    left: 24px;
+    padding: 0px, 24px, 0px, 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #26262E;
 }
 
 
@@ -65,6 +87,13 @@
     left: 198px;
     width: 64px;
     height: 64px;
+}
+
+.btn_rollback {
+    position: absolute;
+    z-index: 2;
+    top: 508px;
+    left: 280px;
 }
 
 .img_autor {

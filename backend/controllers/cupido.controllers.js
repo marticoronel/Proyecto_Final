@@ -79,9 +79,9 @@ async function soloCantantes(req, res) {
 
 async function guardarPlaylist(req, res) {
    const authHeader = req.headers['authorization'];
-   console.log(authHeader);
+   /* console.log(authHeader); */
    const usuario_id = req.user.usuarioId;
-   console.log(req.user.usuarioId);
+   /* console.log(req.user.usuarioId); */
    try {
       // Obtener la lista de reproducción del cuerpo de la solicitud
       const idDeMusicos = req.body;
@@ -96,11 +96,11 @@ async function guardarPlaylist(req, res) {
       const idPlaylist = playlist[0].id;
 
       for (const cancion of canciones.rows) {
-         console.log(cancion);
+         /* console.log(cancion); */
          await knex('playlist_canciones').insert({ id_playlist: idPlaylist, id_canciones: cancion.id });
 
       }
-      console.log(idPlaylist);
+      /* console.log(idPlaylist); */
 
       // Enviar una respuesta de éxito
       res.status(200).json({ message: 'Lista de reproducción guardada exitosamente.' });
