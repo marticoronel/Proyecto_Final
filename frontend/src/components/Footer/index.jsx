@@ -24,7 +24,7 @@ export default function Footer() {
     };
 
     const handleButtonClickInicio = () => {
-        navigate("/");
+        navigate("/home");
         visibilidadIconInicio();
     }
 

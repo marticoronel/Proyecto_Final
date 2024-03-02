@@ -12,7 +12,6 @@ const CuadradoFotos = () => {
 
                 console.log('Respuesta del servidor:', data);
 
-                // Verificar si data es una matriz antes de establecerla
                 if (Array.isArray(data)) {
                     setTapasDiscos(data);
                 } else {
