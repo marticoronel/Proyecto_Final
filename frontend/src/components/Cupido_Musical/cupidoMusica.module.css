@@ -1,26 +1,14 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-}
-
-.body {
-    background: linear-gradient(to bottom, #FEE5C8 0%, #FEE5C8 30px, white 100px, white 100%);
-    width: 368px;
-    height: 792px;
-}
 
 .container {
-
-    opacity: 0.5px;
-    background: linear-gradient(to bottom, #FEE5C8 0%, #FEE5C8 30px, white 100px, white 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
+    position: absolute;
     width: 368px;
     height: 792px;
+    opacity: 0.5px;
+    background: linear-gradient(to bottom, #FEE5C8 0%, #FEE5C8 30px, white 100px, white 100%);
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px; */
 }
 
 .login_header {
@@ -28,6 +16,10 @@
     height: 40px;
     display: flex;
     flex-direction: row;
+    position: absolute;
+    z-index: 1;
+    top: 24px;
+    left: 24px;
 }
 
 .btn_arrow {
@@ -63,6 +55,7 @@
     color: #26262E;
 }
 
+
 .btn_crearPlayList {
     position: absolute;
     width: 320px;
@@ -81,8 +74,8 @@
 .btn_corazon {
     position: absolute;
     z-index: 2;
-    top: 320px;
-    left: 64px;
+    top: 390px;
+    left: 100px;
     width: 64px;
     height: 64px;
 }
@@ -90,15 +83,22 @@
 .btn_equix {
     position: absolute;
     z-index: 2;
-    top: 320px;
-    left: 192px;
+    top: 390px;
+    left: 198px;
     width: 64px;
     height: 64px;
 }
 
+.btn_rollback {
+    position: absolute;
+    z-index: 2;
+    top: 508px;
+    left: 280px;
+}
+
 .img_autor {
     position: absolute;
-    top: 96px;
+    top: 156px;
     left: 43.9px;
     width: 272px;
     height: 272px;
@@ -110,8 +110,8 @@
 .tapa_disco {
     position: absolute;
     z-index: 1;
-    top: 96px;
-    /* left: 43.9px; */
+    top: 156px;
+    left: 43.9px;
     width: 272px;
     height: 272px;
     border-top-right-radius: 48px;
@@ -133,19 +133,20 @@ p::first-letter {
     text-align: center;
     width: 320px;
     height: 28px;
-    top: 424px;
-    /* left: 40px; */
+    top: 484px;
+    left: 21px;
 }
 
 .siguiente_tapa_disco {
-    position: absolute;
+    position: fixed;
     z-index: 0;
     width: 204px;
     height: 204px;
-    top: 32px;
+    top: 92px;
     left: 180px;
     rotate: 10.45deg;
     border-top-right-radius: 48px;
     border-bottom-left-radius: 48px;
     overflow: hidden;
+    opacity: 0.3;
 }
