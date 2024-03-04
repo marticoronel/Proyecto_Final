@@ -64,10 +64,6 @@ const router = createBrowserRouter([
     element: <Buscar />,
   },
   {
-    path: '/buscar',
-    element: <Buscartop10 />,
-  },
-  {
     path: '/perfil',
     element: <Perfil />,
   },
