@@ -65,7 +65,7 @@ const PlaylistContextual = () => {
                 <CancionItem key={index} cancion={cancion} />
               ))
             ) : (
-              <p>Cargando...</p>
+              <img className={styles.cargando} src="/public/imgs/playlist/cargando.svg" alt="" />
             )}
           </ul>
         </div>

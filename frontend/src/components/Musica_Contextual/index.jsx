@@ -143,7 +143,7 @@ const MusicaContextual = () => {
             ))}
           </div>
         ) : (
-          <p>Cargando...</p>
+          <img src="/public/imgs/playlist/cargando.svg" alt="" />
         )}
       </div>
       <div>
