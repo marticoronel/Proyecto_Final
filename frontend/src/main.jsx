@@ -18,6 +18,8 @@ import Amigos from './components/Amigos';
 import Cupido_Musical from './components/Cupido_Musical';
 import Musica_Contextual from './components/Musica_Contextual';
 import Playlist_Contextual from './components/PlaylistContextual';
+import Playlist_Cupido_Musical from './components/PlaylistCupidoMusical';
+import ComponentePrueba from './components/PlaylistCupidoMusical/ComponentePrueba';
 
 
 
@@ -70,6 +72,15 @@ const router = createBrowserRouter([
     path: '/amigos',
     element: <Amigos />,
   },
+  {
+    path: '/playlist_cupido_musical',
+    element: <Playlist_Cupido_Musical />,
+  },
+  {
+    path: '/componente_prueba',
+    element: <ComponentePrueba />,
+  }
+
 ]);
 
 createRoot(document.getElementById('root')).render(

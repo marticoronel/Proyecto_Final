@@ -16,6 +16,8 @@ export default function Cupido_Musical() {
   const [siguienteCantante, setSiguienteCantante] = useState(null);
   const [imgCantanteActual, setImgCantanteActual] = useState(null);
   const [playlistFotos, setPlaylistFotos] = useState([]);
+  const [cantantesParaLaPlaylist, setCantantesParaLaPlaylist] = useState([]);
+
 
   useEffect(() => {
     const obtenerCantantes = async () => {
@@ -43,8 +45,9 @@ export default function Cupido_Musical() {
   const agregarCantanteAPlaylist = () => {
     const idCantanteActual = cantantes[indiceCantanteActual].id_cantante;
     const fotoCantanteActual = cantantes[indiceCantanteActual].tapa_cantante;
+    const losCantantes = cantantes[indiceCantanteActual];
 
-    console.log("la tapa del cantante actual", fotoCantanteActual);
+    /* console.log("la tapa del cantante actual", fotoCantanteActual); */
 
     setPlaylistFotos(prevPlaylistFotos => [...prevPlaylistFotos, fotoCantanteActual]);
 
@@ -52,9 +55,11 @@ export default function Cupido_Musical() {
 
     setImgCantanteActual(fotoCantanteActual);
 
+    setCantantesParaLaPlaylist(prevCantantesParaLaPlaylist => [...prevCantantesParaLaPlaylist, losCantantes]);
+    /* console.log("los cantantes son",losCantantes); */
   };
-
-  console.log("la tpa del cantante actual en el set", imgCantanteActual);
+  
+/*   console.log("la tpa del cantante actual en el set", imgCantanteActual); */
 
 
   const guardarPlaylistEnBaseDeDatos = async () => {
@@ -65,6 +70,7 @@ export default function Cupido_Musical() {
           'Authorization': localStorage.getItem('token')
         }
       });
+      navigate('/playlist_cupido_musical');
 
 
     } catch (error) {
@@ -76,7 +82,7 @@ export default function Cupido_Musical() {
     <>
       <div>
         <div className={styles.login_header}>
-          <button className={styles.btn_arrow} onClick={() => navigate('/ingreso_email')}>
+          <button className={styles.btn_arrow} onClick={() => navigate('/home')}>
             <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atrás" />
           </button>
           <h2 className={styles.heading_5}>Cupido Musical</h2>

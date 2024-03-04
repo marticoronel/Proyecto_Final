@@ -17,6 +17,6 @@ const CancionItem = ({ cancion }) => {
       </li>
     </div>
   );
-};
+}; 
 
 export default CancionItem;
