@@ -39,8 +39,7 @@ export default function Footer() {
     }
 
     const handleButtonClickAmigos = () => {
-        navigate("/amigos");
-        visibilidadIconAmigos();
+       
     }
 
     return (
@@ -75,12 +74,8 @@ export default function Footer() {
                     <span className={styles.bodyBodyVerySmall_12_clara}>Perfil</span>
                 </div>
             </button>
-            <button className={styles.btn_footer} type="button" onClick={() => handleButtonClickAmigos()}>
-                {showIconAmigos ? (
-                    <img className={styles.icono_footer} src="../../../public/imgs/login_registrar_IMGS/footer_amigos.png" alt="icono grupo amigos" />
-                ) : (
+            <button className={styles.btn_footer} type="button">
                     <img className={styles.icono_footer} src="../../../public/imgs/login_registrar_IMGS/footer_amigos_claro.png" alt="icono grupo amigos" />
-                )}
                 <div className={styles.texto_footer}>
                     <span className={styles.bodyBodyVerySmall_12_clara}>Amigos</span>
                 </div>

@@ -16,8 +16,8 @@ export default function Perfil() {
             </div>
             <div className={`${styles.userName} ${styles.heading_3}`}>El Negro Tecla 🍻</div>
             <div className={styles.bodyBodyVerySmall_14}>@negro_tecla</div>
-            <div className={styles.bodyBodyVerySmall_14}>@negro_tecla</div>
-
+            <img  className={styles.playlist} src="/public/imgs/playlist/playlist-10.png" alt="" />
+            <img className={styles.playlist2} src="/public/imgs/playlist/playlist-09.png" alt="" />
             <Footer />
         </div >
     );

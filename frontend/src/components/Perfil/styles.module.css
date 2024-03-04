@@ -54,7 +54,7 @@
     width: 320px;
     height: 36px;
     position: absolute;
-    Top: 216px; 
+    Top: 216px;
     Left: 24px;
 }
 
@@ -83,28 +83,21 @@
 }
 
 
-
-.top10 {
+.playlist {
     width: 320px;
-    height: 32px;
+    height: 26px;
     position: absolute;
-    top: -50px;
+    top: 304px;
     left: 24px;
-    text-align: start;
-    font-family: Rubik;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 28px;
-    color: #26262E;
+    gap: 16px;
 }
 
-.top10::after {
-    content: '';
+
+.playlist2 {
+    width:320px;
+    height:204px;
     position: absolute;
-    left: 76px;
-    top: 50%;
-    width: 240px;
-    height: 1px;
-    border: 1px solid #E4E6E8;
-    background-color: #E4E6E8;
+    top: 352px;
+    left: 24px;
+    gap: 16px;
 }
