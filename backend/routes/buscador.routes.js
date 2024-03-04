@@ -20,4 +20,14 @@ router.get('/buscar', async (req, res) => {
     }
 });
 
+router.get('/top10artistas', async (req, res) => {
+    try {
+        const top10Artistas = await buscadorControllers.buscarTop10();
+        res.json(top10Artistas);
+    } catch (error) {
+        console.error('Error al obtener los 10 artistas:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+});
+
 module.exports = router;

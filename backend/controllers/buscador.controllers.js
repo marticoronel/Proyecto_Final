@@ -24,17 +24,15 @@ async function buscarEnCanciones(nombre) {
 
 async function buscarEnMusicos(nombre) {
     try {
-        // Obtener información del cantante
         const cantanteResult = await knex('musicos')
             .select('id', 'nombre_cantante', 'tapa_cantante')
             .where('nombre_cantante', 'ilike', `%${nombre}%`)
             .first();
 
         if (!cantanteResult) {
-            return []; // No se encontró el cantante
+            return []; 
         }
 
-        // Obtener canciones asociadas al cantante
         const cancionesResult = await knex('canciones')
             .select('id', 'nombre_cancion', 'id_musicos', 'id_discos')
             .where('id_musicos', cantanteResult.id);
@@ -49,7 +47,6 @@ async function buscarEnMusicos(nombre) {
             tapaCantante: cantanteResult.tapa_cantante,
         }));
 
-        // Devolver el cantante y las canciones asociadas
         return [
             {
                 tipo: 'musico',
@@ -64,7 +61,28 @@ async function buscarEnMusicos(nombre) {
     }
 }
 
+async function buscarTop10() {
+    try {
+        const top10Artistas = await knex('musicos')
+            .select('id', 'nombre_cantante', 'tapa_cantante');
+
+        console.log('Top 10 artistas desde la base de datos:', top10Artistas);
+
+        return top10Artistas.map(musico => ({
+            tipo: 'musico',
+            id: musico.id,
+            nombre: musico.nombre_cantante,
+            tapaCantante: musico.tapa_cantante,
+        }));
+    } catch (error) {
+        console.error('Error al obtener los 10 artistas desde la base de datos:', error);
+        throw error;
+    }
+}
+
+
 module.exports = {
     buscarEnCanciones,
     buscarEnMusicos,
+    buscarTop10,
 };

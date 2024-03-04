@@ -1,0 +1,83 @@
+.body {
+    width: 368px;
+    height: 480px;
+    position: absolute;
+    top: 216px;
+    padding: 0px 24px 0px 24px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.top10 {
+    width: 320px;
+    height: 32px;
+    position: absolute;
+    top: -50px;
+    left: 24px;
+    text-align: start;
+    font-family: Rubik;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    color: #26262E;
+}
+
+.top10::after {
+    content: '';
+    position: absolute;
+    left: 76px;
+    top: 50%;
+    width: 240px;
+    height: 1px;
+    border: 1px solid #E4E6E8;
+    background-color: #E4E6E8;
+}
+
+
+.album_cover {
+    width: 142px;
+    height: 142px;
+}
+
+.cancion_container {
+    width: 152px;
+    height: 204px;
+    gap: 16px;
+
+}
+
+.cancion_list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}   
+
+.bodyBodyVerySmall_14 {
+    width: 208px;
+    height: 21px;
+    font-family: Rubik;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    text-transform: capitalize;
+
+}
+.bodyBodyVerySmall_12 {
+    width: 208px;
+    height: 36px;
+    gap: 8px;
+    font-family: Rubik;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    text-align: left;
+}

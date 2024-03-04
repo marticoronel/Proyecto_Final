@@ -1,13 +1,12 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import ReactDOM from 'react-dom';
 import {
   createBrowserRouter,
   RouterProvider,
   Route,
 } from 'react-router-dom';
-import Login from './components/Login';
 import Inicio from './components/inicio/Inicio';
+import Login from './components/Login';
 import RecuperarContrasena from './components/RecuperarContrasena';
 import NombreUsuario from './components/NombreUsuario';
 import Registrarse from './components/Registrarse';
@@ -20,7 +19,7 @@ import Musica_Contextual from './components/Musica_Contextual';
 import Playlist_Contextual from './components/PlaylistContextual';
 import Playlist_Cupido_Musical from './components/PlaylistCupidoMusical';
 import ComponentePrueba from './components/PlaylistCupidoMusical/ComponentePrueba';
-
+import Buscartop10 from './components/Buscartop10';
 
 
 const router = createBrowserRouter([
@@ -65,6 +64,10 @@ const router = createBrowserRouter([
     element: <Buscar />,
   },
   {
+    path: '/buscar',
+    element: <Buscartop10 />,
+  },
+  {
     path: '/perfil',
     element: <Perfil />,
   },
@@ -79,8 +82,7 @@ const router = createBrowserRouter([
   {
     path: '/componente_prueba',
     element: <ComponentePrueba />,
-  }
-
+  },
 ]);
 
 createRoot(document.getElementById('root')).render(
