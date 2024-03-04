@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import CancionItem from '../CancionItem';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 
 import styles from './styles.module.css';
 
@@ -13,6 +14,7 @@ import Collage_albums from "../Collage_albums";
 
 export default function ComponentePrueba() {
     const [cantantes, setCantantes] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const cargarCantantesDePrueba = async () => {
@@ -34,12 +36,12 @@ export default function ComponentePrueba() {
     return (
         <div className={styles.body}>
             <div className={styles.container}>
-                <div className={styles.login_header}>
-                    <button className={styles.btn_arrow} onClick={() => navigate('/cupido_musical')}>
-                        <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atrás" />
-                    </button>
-                    <h2 className={styles.heading_5}>Cupido Musical</h2>
-                </div>
+            <div className={styles.login_header}>
+                <button className={styles.btn_arrow} onClick={() => navigate('/home')}>
+                    <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atrás" />
+                </button>
+                <h2 className={styles.heading_5}>Cupido Musical</h2>
+            </div>
                 < Collage_albums className={styles.collage} />
                 <div className={styles.icons}>
                     <div className={styles.left_icons}>
@@ -62,12 +64,9 @@ export default function ComponentePrueba() {
                         <img className={styles.play} src='../../public/imgs/playlist/play.png' alt="" />
                     </div>
                 </div>
-
-                <h2>Lista de Cantantes</h2>
                 <ul>
                     {Array.isArray(cantantes) && cantantes.map((cantante, index) => (
                         <>
-                            <li key={index}>{cantante.nombre_cancion}</li>
                             <CancionItem cancion={cantante} />
                         </>
                     ))}

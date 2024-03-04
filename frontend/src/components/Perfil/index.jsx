@@ -16,6 +16,8 @@ export default function Perfil() {
             </div>
             <div className={`${styles.userName} ${styles.heading_3}`}>El Negro Tecla 🍻</div>
             <div className={styles.bodyBodyVerySmall_14}>@negro_tecla</div>
+            <div className={styles.bodyBodyVerySmall_14}>@negro_tecla</div>
+
             <Footer />
         </div >
     );
