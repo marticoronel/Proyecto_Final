@@ -9,7 +9,9 @@ router.get('/buscar', async (req, res) => {
         const canciones = await buscadorControllers.buscarEnCanciones(nombre);
         const musicos = await buscadorControllers.buscarEnMusicos(nombre);
 
-        // Combinar los resultados y enviarlos como respuesta
+        console.log('Canciones encontradas:', canciones);
+        console.log('Musicos encontrados:', musicos);
+
         const resultados = [...canciones, ...musicos];
         res.json(resultados);
     } catch (error) {

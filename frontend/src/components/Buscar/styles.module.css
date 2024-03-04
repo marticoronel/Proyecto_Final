@@ -5,7 +5,30 @@
     background: linear-gradient(to bottom, #FEE5C8 0%, #FEE5C8 30px, white 100px, white 100%);
     display: flex;
     flex-direction: column;
-    align-items: center;
+}
+.login_header{
+    width: 320px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 48px;
+    left: 24px;
+} 
+
+.btn_arrow {
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    background: none; 
+    border: none;
+}
+
+.arrow {
+    width: 20px;
+    height: 20px;
+    background: none; 
+    border: none;
 }
 
 .header {
@@ -16,7 +39,7 @@
     left: 24px;
 }
 
-.input_header_buscador {
+.input_buscador {
     width: 320px;
     height: 48px;
     position: absolute;
@@ -25,7 +48,7 @@
     border-radius: 0px 16px 0px 16px;
     border: 2px;
     gap: 16px;
-    border: 2px solid #BFC0C1
+    border: 2px solid #FF8E0A
 }
 
 .heading_3 {
