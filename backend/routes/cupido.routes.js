@@ -8,6 +8,9 @@ router.get('/cupido_musical/cantantes/primero', cupidoControllers.obtenerPrimerC
 router.get('/cupido_musical/cantantes/todos', cupidoControllers.obtenerTodosLosCantantes);
 router.get('/cupido_musical/cantantes/soloCantantes', cupidoControllers.soloCantantes);
 
+router.get('/cupido_musical/cantantes/prueba', verifyToken, cupidoControllers.endpointdeprueba);
+
+
 router.post('/cupido_musical/playlist', verifyToken, cupidoControllers.guardarPlaylist);
 
 

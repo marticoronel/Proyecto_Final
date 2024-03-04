@@ -18,6 +18,8 @@ router.get('/cupido_musical/cantantes/todos', cupidoRoutes);
 
 router.get('/cupido_musical/cantantes/soloCantantes', cupidoRoutes);
 
+router.get('/cupido_musical/cantantes/prueba', cupidoRoutes);
+
 router.post('/cupido_musical/playlist', cupidoRoutes);
 
 router.use('/musica_contextual', contextualRoutes);

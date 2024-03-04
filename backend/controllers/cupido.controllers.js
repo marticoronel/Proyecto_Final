@@ -3,6 +3,7 @@ const e = require('cors');
 const knexfile = require('../knexfile');
 const knex = require('knex')(knexfile);
 
+
 async function obtenerPrimerCantante(req, res) {
    try {
       const result = await knex.raw(`
@@ -100,7 +101,6 @@ async function guardarPlaylist(req, res) {
          await knex('playlist_canciones').insert({ id_playlist: idPlaylist, id_canciones: cancion.id });
 
       }
-      /* console.log(idPlaylist); */
 
       // Enviar una respuesta de éxito
       res.status(200).json({ message: 'Lista de reproducción guardada exitosamente.' });
@@ -111,10 +111,77 @@ async function guardarPlaylist(req, res) {
    }
 }
 
+
+
+/* async function endpointdeprueba(req, res) {
+  const authHeader = req.headers['authorization'];
+  console.log("esto es el token encriptado", authHeader);
+  const usuario_id = req.user.usuarioId;
+  console.log("esto es el id del usuario", req.user.usuarioId);
+
+  try {
+     const prueba = await knex.raw(`
+
+     SELECT canciones.*
+     FROM canciones
+     JOIN playlist_canciones ON playlist_canciones.id_canciones = canciones.id
+     WHERE playlist_canciones.id_playlist = (
+     SELECT id
+     FROM playlist
+     WHERE id_usuario = 1
+     ORDER BY id DESC
+     LIMIT 1);
+
+     `);
+     console.log(prueba);
+     res.json(prueba);
+  }
+  catch (error) {
+     console.error('Error al obtener los cantantes:', error);
+  }
+} */
+
+async function endpointdeprueba(req, res) {
+   const authHeader = req.headers['authorization'];
+   console.log("esto es el token encriptado", authHeader);
+   const usuario_id = req.user.usuarioId;
+   console.log("esto es el id del usuario", req.user.usuarioId);
+
+   try {
+      const { rows } = await knex.raw(`
+SELECT 
+    canciones.*, 
+    (SELECT tapa_disco 
+     FROM discos 
+     WHERE discos.id = canciones.id_discos
+     LIMIT 1) AS tapa_disco
+FROM 
+    canciones
+JOIN 
+    playlist_canciones ON playlist_canciones.id_canciones = canciones.id
+WHERE 
+    playlist_canciones.id_playlist = (
+        SELECT id
+        FROM playlist
+        WHERE id_usuario = ?
+        ORDER BY id DESC
+        LIMIT 1
+    )`, [usuario_id]);
+
+      res.json(rows);
+      console.log("solo el rows", rows);
+   } catch (error) {
+      console.error('Error al obtener los cantantes:', error);
+      res.status(500).json({ error: 'Error al obtener los cantantes.' });
+   }
+}
+
+
 module.exports = {
    obtenerTodosLosCantantes,
    obtenerPrimerCantante,
    soloCantantes,
-   guardarPlaylist
+   guardarPlaylist,
+   endpointdeprueba
 };
 
