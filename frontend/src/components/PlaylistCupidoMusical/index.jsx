@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CancionItem from '../CancionItem';
 import { useNavigate } from "react-router-dom";
@@ -36,12 +36,12 @@ export default function ComponentePrueba() {
     return (
         <div className={styles.body}>
             <div className={styles.container}>
-            <div className={styles.login_header}>
-                <button className={styles.btn_arrow} onClick={() => navigate('/home')}>
-                    <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atrás" />
-                </button>
-                <h2 className={styles.heading_5}>Cupido Musical</h2>
-            </div>
+                <div className={styles.login_header}>
+                    <button className={styles.btn_arrow} onClick={() => navigate('/home')}>
+                        <img className={styles.arrow} src={flecha_retroceder} alt="navegar hacia atrás" />
+                    </button>
+                    <h2 className={styles.heading_5}>Cupido Musical</h2>
+                </div>
                 < Collage_albums className={styles.collage} />
                 <div className={styles.icons}>
                     <div className={styles.left_icons}>
@@ -66,9 +66,7 @@ export default function ComponentePrueba() {
                 </div>
                 <ul>
                     {Array.isArray(cantantes) && cantantes.map((cantante, index) => (
-                        <>
-                            <CancionItem cancion={cantante} />
-                        </>
+                        <CancionItem key={index} cancion={cantante} />
                     ))}
                 </ul>
                 <Footer className={styles.footer} />
